@@ -1,0 +1,202 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    font-size: 16px;
+    background: linear-gradient(1deg, #4a98f7, transparent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Anta", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.container {
+    width: 40rem;
+    height: 25rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background: linear-gradient(180deg, #15ff91 20%, transparent);
+    border-radius: 2rem;
+}
+
+.container img {
+    width: 25%;
+}
+
+.container .clock {
+    /* font-family: "Protest Guerrilla", sans-serif; */
+    font-family: "Anta", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 3rem;
+}
+
+.container .controls {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.container .controls select {
+    border: none;
+    outline: none;
+    width: 15rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+    font-family: "Anta", sans-serif;
+}
+
+.container .controls select:focus {
+    border: 2px solid #4a98f7;
+}
+
+.container .controls select option {
+    background-color: #15ff91;
+}
+
+.container button {
+    width: 33.5rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-family: "Anta", sans-serif;
+    font-weight: bold;
+    background: linear-gradient(204deg, #36f5a7, rgb(248, 248, 248), #36f5a7);
+    background-size: 400%;
+    background-position: center right;
+    transition: all 0.3s ease;
+}
+
+.container button:hover {
+    background-size: 400%;
+    background-position: center left;
+}
+
+.container button.set-alarm {
+    background: linear-gradient(204deg, #f5365f, rgb(248, 248, 248), #f5365f);
+    background-size: 400%;
+    background-position: center right;
+}
+
+.container button.set-alarm:hover {
+    background-size: 400%;
+    background-position: center left;
+}
+
+.alert-box {
+    position: fixed;
+    width: 20rem;
+    height: 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -4rem;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    font-size: 1.2rem;
+    border-radius: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0, 0.49, 0.62, 1.8);
+}
+
+.alert-box.active {
+    opacity: 1;
+    visibility: visible;
+    top: 0.5rem;
+}
+
+.alert-box.active::before {
+    content: '';
+    position: absolute;
+    border-radius: 1rem;
+    bottom: 0px;
+    left: 10px;
+    width: 94%;
+    height: 5px;
+    background-color: #15ff91;
+    animation: timeline 5s linear forwards;
+}
+
+.animate {
+    animation: wakeUp .7s linear infinite;
+}
+
+.animate-img {
+    animation: vibrate .7s linear infinite;
+}
+
+@keyframes timeline {
+    to {
+        width: 0;
+    }
+}
+
+@keyframes wakeUp {
+    10% {
+        transform: scale(1);
+    }
+    20% {
+        transform: scale(1.2);
+    }
+    30% {
+        transform: scale(1);
+    }
+    40% {
+        transform: scale(1.2);
+    }
+    20% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(1.2);
+    }
+    70% {
+        transform: scale(1);
+    }
+    80% {
+        transform: scale(1.2);
+    }
+    90% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes vibrate {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(10deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(-10deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
